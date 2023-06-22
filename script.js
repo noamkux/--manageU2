@@ -13,7 +13,6 @@ var Ingredient = /** @class */ (function () {
     }
     return Ingredient;
 }());
-//TaskManager
 var IngredientsManager = /** @class */ (function () {
     function IngredientsManager() {
         this.ingredients = [];
@@ -246,7 +245,6 @@ function completeTask(id) {
     showIngredientsInLists();
 }
 function deleteTask(id) {
-    // confirm "Are you sure?"
     if (confirm("Are you sure?")) {
         manager.deleteTask(id);
         showIngredientsInLists();
@@ -261,19 +259,6 @@ function addNewTask() {
     }
     else
         alert("Sorry! Something went wrong");
-}
-function deleteRowFromModal(id, type) {
-    if (type === 1) {
-        document.getElementById("ingrediantRow" + id).innerHTML = "";
-    }
-    else if (type === 2) {
-        document.getElementById("instructionsRow" + id).innerHTML = "";
-    }
-    else if (type === 3) {
-        document.getElementById("utencilsRow" + id).innerHTML = "";
-    }
-    else
-        console.log("hello");
 }
 function addNewIngrediants() {
     document.getElementById("newRecipeIngrediants").innerHTML = "";
@@ -297,7 +282,7 @@ function addNewIngrediants() {
 function addNewInstructions() {
     var newInsturction = document.getElementById("addInstructions").value;
     if (!newInsturction) {
-        return alert("add name and amount to craet a new ingredaint");
+        return alert("Please provide a description for the instructions");
     }
     userAdd.newInsturctionList.push(newInsturction);
     document.getElementById("newRecipeInstructions").innerHTML += "\n    <li class=\"list-group-item d-inline-block\">".concat(newInsturction, "</li>\n    ");
@@ -308,7 +293,7 @@ function addNewInstructions() {
 function addNewUtencil() {
     var newUtencil = document.getElementById("addUtencil").value;
     if (!newUtencil) {
-        return alert("add name and amount to craet a new ingredaint");
+        return alert("Please provide a name for the ustencil");
     }
     userAdd.newUtencilsList.push(newUtencil);
     document.getElementById("newRecipeUtencils").innerHTML += "\n    <li class=\"list-group-item d-inline-block\">".concat(newUtencil, "</li>\n    ");
@@ -316,33 +301,33 @@ function addNewUtencil() {
     document.getElementById("addUtencil").placeholder = "";
     console.log(newUtencil);
 }
-function helloWorld() {
-    console.log("helloworld");
-}
 function saveNewRecipe() {
     var recipeName = document.getElementById("userRecipeName").value;
     var prepTime = document.getElementById("userPrepTime").value;
-    if (!recipeName) {
-        return alert("please enter a recipe name");
-    }
-    else if (!prepTime) {
-        return alert("please enter a preperation time");
-    }
-    else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
-        return alert("please enter a At least 3 ingrediants");
-    }
-    else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
-        return alert("please enter a At least 3 instructions");
-    }
-    else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
-        return alert("please enter a At least 1 utencils");
-    }
+    // if (!recipeName) {
+    //     return alert("please enter a recipe name")
+    // }
+    // else if (!prepTime) {
+    //     return alert("please enter a preperation time")
+    // }
+    // else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
+    //     return alert("please enter a At least 3 ingrediants")
+    // }
+    // else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
+    //     return alert("please enter a At least 3 instructions")
+    // }
+    // else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
+    //     return alert("please enter a At least 1 utencils")
+    // }
+    document.getElementById("closeModal").click();
     recipesManager.addRecipe(recipeName, userAdd.newIngrediant, userAdd.newInsturctionList, userAdd.newUtencilsList, prepTime);
-    console.log(recipesManager.recipes);
     userAdd.newIngrediant = "",
         userAdd.newInsturctionList = "",
         userAdd.newUtencilsList = "";
     showRecipes(recipesManager.recipes.length - 1);
+    document.getElementById("newRecipeIngrediants").innerHTML = "";
+    document.getElementById("newRecipeInstructions").innerHTML = "";
+    document.getElementById("newRecipeUtencils").innerHTML = "";
 }
 function cookThis(recipeToCook) {
     var indexToCook = recipesManager.recipes.findIndex(function (recipes) { return recipes.id == recipeToCook; });

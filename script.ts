@@ -12,7 +12,7 @@ class Ingredient {
         this.addedToStock = new Date()
     }
 }
-//TaskManager
+
 class IngredientsManager {
     public ingredients: Ingredient[];
     constructor() {
@@ -240,6 +240,7 @@ class RecipesManager {
     }
 }
 
+
 let manager = new IngredientsManager()
 let recipesManager = new RecipesManager()
 console.log(manager.ingredients);
@@ -344,7 +345,6 @@ function completeTask(id: number) {
     showIngredientsInLists();
 }
 function deleteTask(id: number) {
-    // confirm "Are you sure?"
     if (confirm("Are you sure?")) {
         manager.deleteTask(id);
         showIngredientsInLists();
@@ -358,17 +358,6 @@ function addNewTask(): void {
         manager.addIngredients(new Ingredient(name, newAmount!));
         showIngredientsInLists();
     } else alert("Sorry! Something went wrong");
-}
-function deleteRowFromModal(id: number, type: number) {
-    if (type === 1) {
-        document.getElementById("ingrediantRow" + id)!.innerHTML = "";
-    } else if (type === 2) {
-        document.getElementById("instructionsRow" + id)!.innerHTML = "";
-    } else if (type === 3) {
-        document.getElementById("utencilsRow" + id)!.innerHTML = "";
-    }
-    else console.log("hello");
-
 }
 function addNewIngrediants(): void {
     document.getElementById("newRecipeIngrediants")!.innerHTML = ""
@@ -392,7 +381,6 @@ function addNewIngrediants(): void {
     }
     (document.getElementById("addIngrediantName") as HTMLInputElement).value = "";
     (document.getElementById("addIngrediantAmount") as HTMLInputElement).value = "";
-
     (document.getElementById("addIngrediantName") as HTMLInputElement).placeholder = "";
     (document.getElementById("addIngrediantAmount") as HTMLInputElement).placeholder = "";
 
@@ -405,7 +393,7 @@ function addNewInstructions(): void {
 
     let newInsturction: string = (document.getElementById("addInstructions") as HTMLInputElement).value
     if (!newInsturction) {
-        return alert("add name and amount to craet a new ingredaint")
+        return alert("Please provide a description for the instructions")
     }
     userAdd.newInsturctionList.push(newInsturction)
     document.getElementById("newRecipeInstructions")!.innerHTML += `
@@ -419,7 +407,7 @@ function addNewInstructions(): void {
 function addNewUtencil(): void {
     let newUtencil: string = (document.getElementById("addUtencil") as HTMLInputElement).value
     if (!newUtencil) {
-        return alert("add name and amount to craet a new ingredaint")
+        return alert("Please provide a name for the ustencil")
     }
     userAdd.newUtencilsList.push(newUtencil)
     document.getElementById("newRecipeUtencils")!.innerHTML += `
@@ -432,38 +420,38 @@ function addNewUtencil(): void {
     console.log(newUtencil);
 
 }
-function helloWorld() {
-    console.log("helloworld");
-
-}
 function saveNewRecipe(): void {
     let recipeName = (document.getElementById("userRecipeName") as HTMLInputElement).value
-    let prepTime = (document.getElementById("userPrepTime") as HTMLInputElement).value
-    if (!recipeName) {
-        return alert("please enter a recipe name")
-    }
+    let prepTime = (document.getElementById("userPrepTime") as HTMLInputElement).value;
+    // if (!recipeName) {
+    //     return alert("please enter a recipe name")
+    // }
 
-    else if (!prepTime) {
-        return alert("please enter a preperation time")
-    }
-    else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
-        return alert("please enter a At least 3 ingrediants")
-    }
+    // else if (!prepTime) {
+    //     return alert("please enter a preperation time")
+    // }
+    // else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
+    //     return alert("please enter a At least 3 ingrediants")
+    // }
 
-    else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
-        return alert("please enter a At least 3 instructions")
-    }
-    else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
-        return alert("please enter a At least 1 utencils")
-    }
+    // else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
+    //     return alert("please enter a At least 3 instructions")
+    // }
+    // else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
+    //     return alert("please enter a At least 1 utencils")
+    // }
+    (document.getElementById("closeModal") as HTMLButtonElement).click()
+    
 
     recipesManager.addRecipe(recipeName, userAdd.newIngrediant, userAdd.newInsturctionList, userAdd.newUtencilsList, prepTime)
-    console.log(recipesManager.recipes);
     userAdd.newIngrediant = "",
         userAdd.newInsturctionList = "",
         userAdd.newUtencilsList = ""
-    showRecipes(recipesManager.recipes.length - 1)
-
+    showRecipes(recipesManager.recipes.length - 1);
+    document.getElementById("newRecipeIngrediants")!.innerHTML = "";
+    document.getElementById("newRecipeInstructions")!.innerHTML = "";
+    document.getElementById("newRecipeUtencils")!.innerHTML = "";
+    
 }
 function cookThis(recipeToCook: number): void {
 

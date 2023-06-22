@@ -49,14 +49,15 @@
 </head>
 
 <body style="background-color:white">
-    <h1 class="ps-3 m-0 display-2 text-center text-dark bg-secondary" id="header"><a style="text-decoration: none; color: #de112e; cursor: pointer;" href="index.html">What To Cook<i
+    <h1 class="ps-3 m-0 display-2 text-center text-dark bg-secondary" id="header"><a
+            style="text-decoration: none; color: #de112e; cursor: pointer;" href="index.html">What To Cook<i
                 class=" p-3 fa-solid fa-hamburger pb-0" style="color: #FFC000"></i></a>
         <p id="subHeader" class=" text-center pb-2 display-6 fs-4">you all in one recipe platform</p>
     </h1>
     <div class="row g-0 ">
         <div class="col-lg-6 p-5" id="myRecipesSection">
-            <h1 class="text-center d-flex justify-content-between px-md-5 p-4 rounded-3 text-white bg-danger" >My Recipes <button
-                    class="btn btn-warning rounded-5 display-6 fs-6" data-bs-toggle="modal"
+            <h1 class="text-center d-flex justify-content-between px-md-5 p-4 rounded-3 text-white bg-danger">My Recipes
+                <button class="btn btn-warning rounded-5 display-6 fs-6" data-bs-toggle="modal"
                     data-bs-target="#addRecipeModal" style="width: 35%;">Add New</button></h1>
 
 
@@ -66,7 +67,8 @@
                 <div class="modal-dialog  modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <i class=" pe-2 fa-solid fa-hamburger pb-0" style="color: #FFC000"></i> <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Recipe<p
+                            <i class=" pe-2 fa-solid fa-hamburger pb-0" style="color: #FFC000"></i>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Recipe<p
                                     class="display-6 fs-6 mb-0">please enter a least 3 instructions,3 ingrediants and 1
                                     utencil.</p>
                             </h1>
@@ -133,7 +135,8 @@
                                         <thead>
                                             <tr class="row" id="">
                                                 <th class="col-9 bg-info" scope="col">CookWare</th>
-                                                <th class="col-3 bg-info" scope="col"><button class="btn btn-outline-danger"
+                                                <th class="col-3 bg-info" scope="col"><button
+                                                        class="btn btn-outline-danger"
                                                         onclick="addNewUtencil()">Add</button></th>
                                             </tr>
                                         </thead>
@@ -165,19 +168,19 @@
 
                                         <div class="col-lg-4">
                                             <div class="display-6 fs-4 my-3 text-center">
+                                                Ingredients
+                                            </div>
+                                            <ul class="list-group list-group-flush text-center"
+                                                id="newRecipeIngrediants">
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="display-6 fs-4 my-3 text-center">
                                                 Instructions
                                             </div>
 
                                             <ul class="list-group list-group-flush text-center"
                                                 id="newRecipeInstructions">
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="display-6 fs-4 my-3 text-center">
-                                                Ingredients
-                                            </div>
-                                            <ul class="list-group list-group-flush text-center"
-                                                id="newRecipeIngrediants">
                                             </ul>
                                         </div>
                                         <div class="col-lg-4">
@@ -193,8 +196,8 @@
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button class="btn btn-outline-warning p-3 mt-5" style="width: 50%;"
-                                    onclick="saveNewRecipe()" data-bs-dismiss="modal" aria-label="Close">Create
-                                    Recipe</button>
+                                    onclick="saveNewRecipe()" >Create
+                                    Recipe</button><button class="d-none"aria-label="Close"  data-bs-dismiss="modal" id="closeModal">asasasas</button>
                             </div>
                         </div>
                     </div>
