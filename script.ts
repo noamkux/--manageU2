@@ -257,14 +257,14 @@ function showRecipes(specifcIndex?: number) {
         if (recipesManager.recipes[indexToDisplay].utensils[index] == null) {
             recipesManager.recipes[indexToDisplay].utensils[index] = " "
             console.log("undefind");
-            
+
         }
-        
+
         console.log(
             recipesManager.recipes[indexToDisplay].utensils[index]);
-        
-        
-        
+
+
+
     }
 
     document.getElementById("myRecipes")!.innerHTML +=
@@ -275,44 +275,44 @@ function showRecipes(specifcIndex?: number) {
                       <h5 class="card-title">${recipesManager.recipes[indexToDisplay].name}</h5></div>
                       
                     <div class="col-6 d-flex justify-content-end">
-                    <button class="btn btn-outline-warning text-center rounded-5" style=" min-height: 40px; max-height: 40px;
+                    <button class="btn btn-outline-danger text-center rounded-5" style=" min-height: 40px; max-height: 40px;
                  id="nextButton" onclick="showRecipes()"><i class="fa-solid fa-arrow-right"></i></button>  </div>
                       <h6 class="d-lg-flex card-subtitle mb-2 text-body-secondary justify-content-between align-items-bottom">Peparation time : ${recipesManager.recipes[indexToDisplay].prepTime}
                         
                       </h6>
-                        <div class="row">
+                        <div class="row" style="--bs-gutter-x: 0">
                     <div class="col-md-4">
-                    <div class="display-6 fs-4 my-3 text-center">
+                    <div class="display-6 fs-4 my-3 text-center"style="font-weight:600">
                     Instructions
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-center" style="max-height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].instructions[0]}</li>
-                    <li class="list-group-item text-center"style="max-height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].instructions[1]}</li>
-                    <li class="list-group-item text-center"style="max-height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].instructions[2]}</li>
+                    <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].instructions[0]}</li>
+                    <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].instructions[1]}</li>
+                    <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].instructions[2]}</li>
                   </ul>
                   </div>
-                  <div class="col-md-4">
-                        <div class="display-6 fs-4 my-3 text-center">
+                  <div class="col-md-4 d-none d-md-block">
+                        <div class="display-6 fs-4 my-3 text-center"style="font-weight:600">
                       Ingrediants
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item text-center">${recipesManager.recipes[indexToDisplay].ingredients[0].name}, ${recipesManager.recipes[indexToDisplay].ingredients[0].amount}</li>
-                      <li class="list-group-item text-center">${recipesManager.recipes[indexToDisplay].ingredients[1].name}, ${recipesManager.recipes[indexToDisplay].ingredients[1].amount}</li>
-                      <li class="list-group-item text-center">${recipesManager.recipes[indexToDisplay].ingredients[2].name}, ${recipesManager.recipes[indexToDisplay].ingredients[2].amount}</li>
+                      <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].ingredients[0].name}, ${recipesManager.recipes[indexToDisplay].ingredients[0].amount}</li>
+                      <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].ingredients[1].name}, ${recipesManager.recipes[indexToDisplay].ingredients[1].amount}</li>
+                      <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].ingredients[2].name}, ${recipesManager.recipes[indexToDisplay].ingredients[2].amount}</li>
                     </ul>
                     </div>
-                  <div class="col-md-4">
-                  <div class="display-6 fs-4 my-3 text-center">
+                  <div class="col-md-4 d-none d-md-block">
+                  <div class="display-6 fs-4 my-3 text-center" style="font-weight:600">
                   Utencils
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item text-center">${recipesManager.recipes[indexToDisplay].utensils[0]}</li>
-                  <li class="list-group-item text-center">${recipesManager.recipes[indexToDisplay].utensils[1]}</li>
-                  <li class="list-group-item text-center">${recipesManager.recipes[indexToDisplay].utensils[2]}</li>
+                  <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].utensils[0]}</li>
+                  <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].utensils[1]}</li>
+                  <li class="list-group-item text-center"style="height:60px; overflow:hidden">${recipesManager.recipes[indexToDisplay].utensils[2]}</li>
                 </ul>
                 </div>
                 
-                      <button class="card-link btn btn-outline-warning w-100 rounded-3 text-left mt-3" onclick="cookThis('${recipesManager.recipes[indexToDisplay].id}')">Lets Cook</button>
+                      <button class="card-link btn btn-outline-danger w-100 rounded-3 text-left mt-3" onclick="cookThis('${recipesManager.recipes[indexToDisplay].id}')">Lets Cook</button>
                       </div>
                       </div>
                   </div>`;
@@ -330,7 +330,9 @@ function showIngredientsInLists() {
     for (let item of manager.ingredients) {
         if (item.inStock == false) {
             document.getElementById("ingrediantsToBuy")!.innerHTML += `
-     <div class="border-bottom row"> <li class="list-group-item d-inline-block w-50 col-6 align-self-center ingredaint-item">${item.name}, ${item.amount}</li> <span class="col-sm-6 d-flex justify-content-center"> <button class="btn btn-success mx-3 my-2" onclick="completeTask(${item.id})"><i class="fa-solid fa-check"></i></button><button class="btn btn-danger mx-3 my-2" onclick="deleteTask(${item.id})"><i class="fa-solid fa-trash"></i></button></span> </div> `;
+      
+<div class="justify-content-center p-2 rounded-3 mb-2 bg-secondary" style="width:45%"><div class="ingredaint-item fs-5 text-center mb-2  text-capitalize" style="height:min-content">${item.name}, ${item.amount}</div> <div style="height:min-content" class="d-flex justify-content-around"> <button class="btn btn-warning" onclick="completeTask(${item.id})"><i class="fa-solid fa-check"></i></button><button class="btn btn-danger" onclick="deleteTask(${item.id})"><i class="fa-solid fa-trash"></i></button></div></div>
+</div> `;
         } else {
             document.getElementById("ingredaintsInStock")!.innerHTML += `
       <div class="row"> <li class="list-group-item d-inline-block w-50 col-6 align-self-center ingredaint-item text-decoration-line-through">${item.name}</li> <span class="col-sm-6 d-flex justify-content-center"> <button class="btn btn-success mx-3 my-2" disabled><i class="fa-solid fa-check-double"></i></button><button class="btn btn-danger mx-3 my-2" disabled><i class="fa-solid fa-trash"></i></button></span> </div> `;
@@ -477,10 +479,10 @@ function cookThis(recipeToCook: number): void {
     for (let i = 0; i < recipesManager.recipes[indexToCook].instructions.length; i++) {
 
         document.getElementById("instructionsToCook")!.innerHTML += `
-        <li class="list-group-item">
+        <li class="list-group-item bg-info">
                 <div class="row">
-                <div class="col- align-self-center">
-                <input class="form-check-input me-1" type="checkbox" value="" id="${i}ingrediantToCook"></div>
+                <div class="col-1 align-self-center">
+                <input class="form-check-input me-1 " type="checkbox" value="" id="${i}ingrediantToCook"></div>
                 <div class="col-11"><label class="form-check-label stretched-link" for="${i}ingrediantToCook">${recipesManager.recipes[indexToCook].instructions[i]}</label>
                 </div>
                 </div>
