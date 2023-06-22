@@ -26,4 +26,4 @@ This is a simple recipe app that allows you to enter and cook your favorite reci
 
 ## Contributing
 
-Contributions to the What to Cook app are welcome! If you have any suggestions, bug reports, or feature requests, please submit an issue on the [GitHub repository](https://github.com/your-username/what-to-cook).
+Contributions to the What to Cook app are welcome! If you have any suggestions, bug reports, or feature requests, please submit an issue on the [GitHub repository](https://github.com/noamkux/whatToCook).
