@@ -8,15 +8,6 @@ This is a simple recipe app that allows you to enter and cook your favorite reci
 - Create a shopping list based on the ingredients required for your recipes
 - Add new recipes with at least 3 ingredients, 3 instructions, and 1 utensil
 
-## Getting Started
-
-To use the What to Cook app, follow these steps:
-
-1. Clone the repository to your local machine.
-2. Install the required dependencies by running `npm install`.
-3. Start the app by running `npm start`.
-4. Access the app through your web browser at `http://localhost:3000`.
-
 ## Usage
 
 ### Adding a Recipe
@@ -36,5 +27,3 @@ To use the What to Cook app, follow these steps:
 ## Contributing
 
 Contributions to the What to Cook app are welcome! If you have any suggestions, bug reports, or feature requests, please submit an issue on the [GitHub repository](https://github.com/your-username/what-to-cook).
-
-## License
