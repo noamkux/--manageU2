@@ -236,7 +236,7 @@ function showIngredientsInLists() {
             document.getElementById("ingrediantsToBuy").innerHTML += "\n      \n<div class=\"justify-content-center p-2 rounded-3 mb-2 bg-secondary\" style=\"width:45%\"><div class=\"ingredaint-item fs-5 text-center mb-2  text-capitalize\" style=\"height:min-content\">".concat(item.name, ", ").concat(item.amount, "</div> <div style=\"height:min-content\" class=\"d-flex justify-content-around\"> <button class=\"btn btn-warning\" onclick=\"completeTask(").concat(item.id, ")\"><i class=\"fa-solid fa-check\"></i></button><button class=\"btn btn-danger\" onclick=\"deleteTask(").concat(item.id, ")\"><i class=\"fa-solid fa-trash\"></i></button></div></div>\n</div> ");
         }
         else {
-            document.getElementById("ingredaintsInStock").innerHTML += "\n      <div class=\"row\"> <li class=\"list-group-item d-inline-block w-50 col-6 align-self-center ingredaint-item text-decoration-line-through\">".concat(item.name, "</li> <span class=\"col-sm-6 d-flex justify-content-center\"> <button class=\"btn btn-success mx-3 my-2\" disabled><i class=\"fa-solid fa-check-double\"></i></button><button class=\"btn btn-danger mx-3 my-2\" disabled><i class=\"fa-solid fa-trash\"></i></button></span> </div> ");
+            document.getElementById("ingredaintsInStock").innerHTML += "\n      \n            <div class=\"justify-content-center p-2 rounded-3 mb-2 bg-secondary text-decoration-line-through\" style=\"width:45%\"><div class=\"ingredaint-item fs-5 text-center mb-2 text-capitalize\" style=\"height:min-content\">".concat(item.name, ", ").concat(item.amount, "</div> <div style=\"height:min-content\" class=\"d-flex justify-content-around\"> <button class=\"btn btn-warning disabled\"><i class=\"fa-solid fa-check\"></i></button><button class=\"btn btn-danger disabled\" onclick=\"deleteTask(").concat(item.id, ")\"><i class=\"fa-solid fa-trash\"></i></button></div></div>\n            </div> ");
         }
     }
 }
@@ -304,21 +304,21 @@ function addNewUtencil() {
 function saveNewRecipe() {
     var recipeName = document.getElementById("userRecipeName").value;
     var prepTime = document.getElementById("userPrepTime").value;
-    // if (!recipeName) {
-    //     return alert("please enter a recipe name")
-    // }
-    // else if (!prepTime) {
-    //     return alert("please enter a preperation time")
-    // }
-    // else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
-    //     return alert("please enter a At least 3 ingrediants")
-    // }
-    // else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
-    //     return alert("please enter a At least 3 instructions")
-    // }
-    // else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
-    //     return alert("please enter a At least 1 utencils")
-    // }
+    if (!recipeName) {
+        return alert("please enter a recipe name");
+    }
+    else if (!prepTime) {
+        return alert("please enter a preperation time");
+    }
+    else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
+        return alert("please enter a At least 3 ingrediants");
+    }
+    else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
+        return alert("please enter a At least 3 instructions");
+    }
+    else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
+        return alert("please enter a At least 1 utencils");
+    }
     document.getElementById("closeModal").click();
     recipesManager.addRecipe(recipeName, userAdd.newIngrediant, userAdd.newInsturctionList, userAdd.newUtencilsList, prepTime);
     userAdd.newIngrediant = "",

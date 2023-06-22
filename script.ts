@@ -336,7 +336,9 @@ function showIngredientsInLists() {
 </div> `;
         } else {
             document.getElementById("ingredaintsInStock")!.innerHTML += `
-      <div class="row"> <li class="list-group-item d-inline-block w-50 col-6 align-self-center ingredaint-item text-decoration-line-through">${item.name}</li> <span class="col-sm-6 d-flex justify-content-center"> <button class="btn btn-success mx-3 my-2" disabled><i class="fa-solid fa-check-double"></i></button><button class="btn btn-danger mx-3 my-2" disabled><i class="fa-solid fa-trash"></i></button></span> </div> `;
+      
+            <div class="justify-content-center p-2 rounded-3 mb-2 bg-secondary text-decoration-line-through" style="width:45%"><div class="ingredaint-item fs-5 text-center mb-2 text-capitalize" style="height:min-content">${item.name}, ${item.amount}</div> <div style="height:min-content" class="d-flex justify-content-around"> <button class="btn btn-warning disabled"><i class="fa-solid fa-check"></i></button><button class="btn btn-danger disabled" onclick="deleteTask(${item.id})"><i class="fa-solid fa-trash"></i></button></div></div>
+            </div> `
         }
     }
 }
@@ -423,23 +425,23 @@ function addNewUtencil(): void {
 function saveNewRecipe(): void {
     let recipeName = (document.getElementById("userRecipeName") as HTMLInputElement).value
     let prepTime = (document.getElementById("userPrepTime") as HTMLInputElement).value;
-    // if (!recipeName) {
-    //     return alert("please enter a recipe name")
-    // }
+    if (!recipeName) {
+        return alert("please enter a recipe name")
+    }
 
-    // else if (!prepTime) {
-    //     return alert("please enter a preperation time")
-    // }
-    // else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
-    //     return alert("please enter a At least 3 ingrediants")
-    // }
+    else if (!prepTime) {
+        return alert("please enter a preperation time")
+    }
+    else if (!userAdd.newIngrediant || userAdd.newIngrediant.length < 3) {
+        return alert("please enter a At least 3 ingrediants")
+    }
 
-    // else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
-    //     return alert("please enter a At least 3 instructions")
-    // }
-    // else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
-    //     return alert("please enter a At least 1 utencils")
-    // }
+    else if (!userAdd.newInsturctionList || userAdd.newInsturctionList.length < 3) {
+        return alert("please enter a At least 3 instructions")
+    }
+    else if (!userAdd.newUtencilsList || userAdd.newUtencilsList.length < 1) {
+        return alert("please enter a At least 1 utencils")
+    }
     (document.getElementById("closeModal") as HTMLButtonElement).click()
     
 
